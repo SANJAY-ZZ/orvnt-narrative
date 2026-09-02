@@ -62,18 +62,12 @@ export function Arrival() {
             }}
           />
 
-          <div
-            style={{
-              animation: "orvnt-breathe 26s linear infinite",
-              opacity: 0,
-              animationName: "orvnt-breathe",
-            }}
-            className="[animation:orvnt-breathe_28s_linear_infinite]"
-          >
+          <div className="[animation:orvnt-breathe_28s_linear_infinite]">
             <div className="[animation:orvnt-fade-up_1.6s_var(--ease)_.15s_both]">
               <RingOnVoid size={132} className="opacity-95" />
             </div>
           </div>
+
 
           <h1
             className="mt-12 font-[family-name:var(--font-display)] text-[clamp(2.4rem,9vw,5.5rem)] leading-none font-semibold tracking-[0.3em] [animation:orvnt-fade-up_1.4s_var(--ease)_.6s_both]"
