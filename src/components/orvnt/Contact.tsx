@@ -56,7 +56,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="reveal flex flex-col justify-end gap-px" style={{ background: "var(--color-border)" }}>
+          <div className="reveal flex flex-col justify-end">
             {[
               { k: "Email", v: "admin.orvnt@gmail.com", href: "mailto:admin.orvnt@gmail.com" },
               { k: "Phone", v: "+91 63697 39598", href: "tel:+916369739598" },
@@ -65,8 +65,8 @@ export function Contact() {
               <a
                 key={i}
                 href={row.href}
-                className="group flex items-baseline justify-between gap-6 py-6"
-                style={{ background: "var(--color-background)" }}
+                className="group flex items-baseline justify-between gap-6 border-t py-6 last:border-b"
+                style={{ borderColor: "var(--color-border)" }}
               >
                 <span className="text-[10px] tracking-[0.28em] text-muted-foreground uppercase">{row.k}</span>
                 <span className="font-[family-name:var(--font-display)] text-base transition-colors duration-300 group-hover:text-gold sm:text-lg">
@@ -75,6 +75,7 @@ export function Contact() {
               </a>
             ))}
           </div>
+
         </div>
 
         <footer className="hairline mt-[14vh] flex flex-col items-start justify-between gap-6 pt-8 sm:flex-row sm:items-center">
