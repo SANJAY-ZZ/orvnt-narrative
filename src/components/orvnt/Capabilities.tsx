@@ -73,17 +73,19 @@ export function SectionHead({
 
 export function CapabilityGrid({ items }: { items: Capability[] }) {
   return (
-    <div className="mt-[9vh] grid gap-px border" style={{ borderColor: "var(--color-border)", background: "var(--color-border)" }}>
-      <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3" style={{ background: "var(--color-border)" }}>
-        {items.map((c, i) => (
-          <div key={c.title} style={{ background: "var(--color-background)" }}>
-            <TiltCard index={i} cap={c} />
-          </div>
-        ))}
-      </div>
+    <div
+      className="mt-[9vh] grid border-t border-l sm:grid-cols-2 lg:grid-cols-3"
+      style={{ borderColor: "var(--color-border)" }}
+    >
+      {items.map((c, i) => (
+        <div key={c.title} className="border-r border-b" style={{ borderColor: "var(--color-border)" }}>
+          <TiltCard index={i} cap={c} />
+        </div>
+      ))}
     </div>
   );
 }
+
 
 export function useSectionReveal() {
   return useReveal<HTMLElement>();

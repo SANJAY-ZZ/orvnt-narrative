@@ -28,8 +28,8 @@ function NeuralField({ progress }: { progress: number }) {
     const reduced = prefersReducedMotion();
     const wide = window.matchMedia("(min-width: 1024px)").matches;
     const mid = window.matchMedia("(min-width: 640px)").matches;
-    const COUNT = reduced ? 26 : wide ? 74 : mid ? 46 : 30;
-    const LINK = wide ? 165 : 125;
+    const COUNT = reduced ? 30 : wide ? 120 : mid ? 64 : 36;
+    const LINK = wide ? 210 : 140;
 
     let w = 0;
     let h = 0;
@@ -164,7 +164,7 @@ export function AiSection() {
             title="Intelligence engineered for real-world use."
             onVoid
           />
-          <div className="mt-[52vh]" />
+          <div className="mt-[34vh]" />
           <div
             className="grid gap-px sm:grid-cols-2 lg:grid-cols-3"
             style={{ background: "rgba(245,245,247,0.12)" }}

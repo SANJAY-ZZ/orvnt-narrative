@@ -36,8 +36,9 @@ function OperatingArchitecture() {
   };
 
   return (
-    <div ref={progRef} className="reveal">
+    <div ref={progRef} className="reveal overflow-hidden py-6">
       <div ref={ref} className="relative mx-auto h-[52vh] min-h-[340px] w-full max-w-[900px]" style={{ perspective: "1200px" }}>
+
         <div
           className="absolute inset-0"
           style={{
