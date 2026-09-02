@@ -27,7 +27,12 @@ export function Ventures() {
 
   const pos = (a: number) => {
     const r = (a * Math.PI) / 180;
-    return { x: 50 + Math.cos(r) * (26 + emerge * 12), y: 50 + Math.sin(r) * (26 + emerge * 12) };
+    const round = (n: number) => Math.round(n * 1000) / 1000;
+    return {
+      x: round(50 + Math.cos(r) * (26 + emerge * 12)),
+      y: round(50 + Math.sin(r) * (26 + emerge * 12)),
+    };
+
   };
 
   return (
