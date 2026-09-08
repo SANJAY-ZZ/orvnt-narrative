@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EmployeeRouteImport } from './routes/employee'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as DomainsSlugRouteImport } from './routes/domains.$slug'
@@ -21,9 +23,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmployeeRoute = EmployeeRouteImport.update({
@@ -49,7 +61,9 @@ const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/contact': typeof ContactRoute
   '/employee': typeof EmployeeRoute
   '/domains/$slug': typeof DomainsSlugRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
@@ -57,6 +71,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/employee': typeof EmployeeRoute
   '/domains/$slug': typeof DomainsSlugRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
@@ -65,7 +81,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/contact': typeof ContactRoute
   '/employee': typeof EmployeeRoute
   '/domains/$slug': typeof DomainsSlugRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
@@ -75,17 +93,28 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/admin'
+    | '/contact'
     | '/employee'
     | '/domains/$slug'
     | '/projects/$projectId'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/employee' | '/domains/$slug' | '/projects/$projectId' | '/admin'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/employee'
+    | '/domains/$slug'
+    | '/projects/$projectId'
+    | '/admin'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/admin'
+    | '/contact'
     | '/employee'
     | '/domains/$slug'
     | '/projects/$projectId'
@@ -94,7 +123,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
+  ContactRoute: typeof ContactRoute
   EmployeeRoute: typeof EmployeeRoute
   DomainsSlugRoute: typeof DomainsSlugRoute
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
@@ -109,11 +140,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin': {
       id: '/admin'
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/employee': {
@@ -159,7 +204,9 @@ const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
+  ContactRoute: ContactRoute,
   EmployeeRoute: EmployeeRoute,
   DomainsSlugRoute: DomainsSlugRoute,
   ProjectsProjectIdRoute: ProjectsProjectIdRoute,
